@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Class_Room.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Courses</h2>
+@{
+    var sessionType = "";
+    sessionType = Session["Type"] as string;
+    sessionType = sessionType != null ? sessionType.Trim().ToLower() : sessionType;
+
+    if (sessionType == "lecture")
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
+
+<html>
+   <body>
+      <table class="table" id="tblCourse" style="margin-top:5px">
+            <thead class="bg-primary text-white">
+                 <tr>
+                     <th>Title</th>
+                     <th>Credit</th>
+                     <th>Lecture</th>
+                 </tr>
+            </thead>
+           <tbody></tbody>
+
+     </table>
+
+            <script src="~/Scripts/jquery-3.3.1.js"></script>
+            <script src="~/Content/Script/Course/IndexScript.js"></script>
+            <link href="~/Content/Style/StyleSheet.css" rel="stylesheet" />
+  </body>
+ </html>
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lecture)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lecture)
+        </td>
+
+
+        @{
+            var sessionTypeInfo = "";
+            sessionTypeInfo = Session["Type"] as string;
+            sessionTypeInfo = sessionTypeInfo != null ? sessionTypeInfo.Trim().ToLower() : sessionTypeInfo;
+
+            if (sessionTypeInfo == "lecture")
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CourseID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseID })
+                </td>
+            }
+        }
+    </tr>
+    }
+
+</table>*@

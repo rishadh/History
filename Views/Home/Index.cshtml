@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>DashBoard</h2>
+
+@{
+    var sessionType = "";
+    sessionType = Session["Type"] as string;
+    sessionType = sessionType != null ? sessionType.Trim().ToLower() : sessionType;
+}
+Welcome to
+<div class="thumbnail">
+    <h1>ClassRoom App</h1>
+</div>
+
+@if (Request.IsAuthenticated)
+{
+
+
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+
+        <button id="#btnme" class="btn btn-danger" onclick="location.href='@Url.Action("Login", "User")'">Logout</button>
+    }
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,92 @@
+﻿@model Class_Room.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+
+}
+
+<body>
+    <div class="container mt-3" style="height:50%; width:50%;" id="regForm">
+        <h2>LOGIN HERE!</h2>
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm">
+                <Label class="col-sm-2 col-form-label" style="margin:7px">Username</Label>
+                <input type="text" class="form-control" placeholder="Enter Your User Name" name="usd" id="usd" autocomplete="off" />
+                <div id="usd_error" class="error" style="color:red"></div>
+
+            </div>
+            <Label class="col-sm-2 col-form-label" style="margin:7px">Password</Label>
+            <div class="col-sm">
+                <input type="password" class="form-control mt-3" placeholder="Enter Password" name="psw" id="psw" autocomplete="off" />
+                <div id="psw_error" class="error" style="color:red"></div>
+
+            </div>
+            <hr>
+            <div class="col-sm-offset-2">
+                <button type="submit" class="btn btn-success" onclick="ajaxSignIn()">
+                    LOGIN
+                </button>
+                <button ID="reset" type="reset" class="btn btn-danger" onclick="window.location.reload()">CLEAR</button>
+            </div>
+        </div>
+    </div>
+    <p class="signin" style="height:50%; width:70%; color:black; background-color:white">
+        Don't you have an Account? @Html.ActionLink("Registration Now", "Register", "User")
+        </p>
+        @Scripts.Render("~/Content/Script/Script.js")
+    <link href="~/Content/Style/StyleSheet.css" rel="stylesheet" />
+</body>
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <p style="color:dodgerblue">Please Login to continue... </p>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RememberMe)
+                        @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="LOGIN" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        Don't you have an Account? @Html.ActionLink("Registration Now", "Register", "User")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+    }*@

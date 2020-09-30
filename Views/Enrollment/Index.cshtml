@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Class_Room.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Enrollments</h2>
+
+<p>
+    @Html.ActionLink("Enroll Now!", "Create")
+</p>
+
+<html>
+<body>
+    <table class="table" id="tblEnrollment" style="margin-top:5px">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th>Course Name</th>
+                <th>Student Name</th>
+                <th>Academic Year</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/Script/Enrollment/IndexScript.js"></script>
+    <link href="~/Content/Style/StyleSheet.css" rel="stylesheet" />
+</body>
+</html>
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.FirstMidName)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstMidName)
+            </td>
+
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentID })
+                @*  @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentID }) |*@
+@*  @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentID })
+        </td>
+
+    </tr>
+}
+
+</table>*@

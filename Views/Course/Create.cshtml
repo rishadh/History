@@ -1,0 +1,84 @@
+﻿@model Class_Room.Models.Course
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="container mt-3" style="height:50%" id="regForm">
+    <h4>Course</h4>
+    <hr>
+    <div class="form-group row">
+        <div class="col-sm">
+            <label for="tl"><b>Title</b></label><br>
+            <input type="text" placeholder="Enter Course Title" name="tl" id="tl" autocomplete="off">
+            <div id="tl_error" class="error" style="color:red"></div>
+        </div>
+
+        <div class="col-sm">
+            <label for="cr"><b>Credit</b></label><br>
+            <input type="text" placeholder="Enter Course Credit" name="cr" id="cr" autocomplete="off">
+            <div id="cr_error" class="error" style="color:red"></div>
+        </div>
+
+        <div class="col-sm">
+            <label for="op1"><b>Lecture</b></label><br>
+            <select id="op1"></select>
+            <div id="op1_error" class="error" style="color:red"></div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-sm">
+                <button ID="submit" onclick="ajaxCreate()" class="btn btn-warning">SAVE</button>
+                <button onclick="window.history.back()" class="btn btn-success">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<link href="~/Content/Style/StyleSheet.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Content/Script/Course/CreateScript.js"></script>
+}
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Course</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Credit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Credit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Credit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lecture, "Lecture", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Lecture", null, htmlAttributes: new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(model => model.Lecture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+    }*@

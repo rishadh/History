@@ -1,0 +1,94 @@
+﻿@model Class_Room.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container mt-3" style="height:50%" id="regForm">
+        <h2>Edit Profile</h2>
+        <h4>user</h4>
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm">
+                <label for="lst"><b>Last Name</b></label><br>
+                <input type="text" placeholder="Enter Your Last Name" name="lst" id="lst" autocomplete="off">
+                <div id="lst_error" class="error" style="color:red"></div>
+            </div>
+
+            <div class="col-sm">
+                <label for="usd"><b>User Name</b></label><br>
+                <input type="text" placeholder="Enter Your User Name" name="usd" id="usd" autocomplete="off">
+                <div id="usd_error" class="error" style="color:red"></div>
+            </div>
+
+            <div class="col-sm">
+                <label for="img"><b>Upload Image</b></label>
+                <input type="file" accept="image/*" name="FileName" id="imgUpload" class="form-control" />
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="col-sm">
+                    <button ID="submit" onclick="ajaxEdit()" class="btn btn-warning">SAVE</button>
+                    <button ID="submit" onclick="window.history.back()" class="btn btn-success">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/Script/User/EditScript.js"></script>
+    <link href="~/Content/Style/StyleSheet.css" rel="stylesheet" />
+</body>
+</html>
+
+
+@*@using (Html.BeginForm("Edit", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstMidName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstMidName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstMidName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="ImageFile" class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-warning" />
+        </div>
+    </div>
+</div>
+}*@

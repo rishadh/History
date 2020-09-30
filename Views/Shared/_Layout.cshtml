@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ClassRoom App</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+            <div class="navbar navbar-inverse navbar-fixed-top" >
+                <div class="container" style="background-color:black;">
+                    <div class="navbar-header">
+
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @{
+                            if (Session["UserId"] != null)
+                            {
+                                @Html.ActionLink("ClassRoom", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                            }
+                        }
+
+                    </div>
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    @{ var sessionTypeInfo = "";
+                                        sessionTypeInfo = Session["Type"] as string;
+                                        sessionTypeInfo = sessionTypeInfo != null ? sessionTypeInfo.Trim().ToLower() : sessionTypeInfo;
+
+                                        if (sessionTypeInfo == "lecture" && Session["UserId"] != null)
+                                        {
+                                            <li>@Html.ActionLink("Students", "Index", "User")</li>
+                                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                            <li>@Html.ActionLink("Profile", "Profile", "User")</li>
+                                        }
+                                        else if (sessionTypeInfo == "student" && Session["UserId"] != null)
+                                        {
+                                            <li>@Html.ActionLink("New Enrollment", "Index", "Enrollment")</li>
+                                            <li>@Html.ActionLink("Lectures", "Index", "User")</li>
+                                            <li>@Html.ActionLink("Profile", "Profile", "User")</li>
+                                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                        }
+                                        @*else
+                                        {
+                                            <li>@Html.ActionLink("Home", "Index", "User")</li>
+                                        }*@
+                                    }
+                                </ul>
+                            </div>              
+                   </div>
+            </div>
+                                  
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p style="color:black;">&copy; @DateTime.Now.Year - Cubo Systems</p>
+                </footer>
+            </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/bundles/bootstrap")
+
+            @RenderSection("scripts", required: false)
+        </body>
+</html>
+
+@* new { id = Session["UserId"] }, null*@

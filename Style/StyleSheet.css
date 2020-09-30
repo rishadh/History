@@ -1,0 +1,86 @@
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: white;
+    align-content: center;
+}
+
+input[type=text], input[type=password] {
+    width: 200%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+input[type=date], input[type=file] {
+    background-color: #ddd;
+    outline: none;
+    margin-left: inherit;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+input {
+    border-left-width: 10px;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.btn btn-success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    width: 100%;
+    opacity: 0.9;
+}
+
+    .btn btn-success:hover {
+        opacity: 1;
+    }
+
+p {
+    color: dodgerblue;
+}
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.col-md-10 {
+    align-items: center;
+    margin-top: auto;
+}
+
+    .col-md-10.form-control {
+        padding: 10px 1px;
+    }
+container mt-3 {
+    height: 50%;
+    width: 50%;
+}
+.error{
+    color: red;
+}
+
+#btnme{
+    margin-top:10px;
+}

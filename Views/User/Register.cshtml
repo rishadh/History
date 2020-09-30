@@ -1,0 +1,99 @@
+﻿@model Class_Room.Models.User
+@{
+    ViewBag.Title = "Register";
+}
+
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">
+            <strong>Success</strong>@ViewBag.Message
+        </div>
+    }
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container mt-3" style="height:50%;width:50%" id="regForm">
+        <h2>REGISTRATION!</h2>
+        <p>Please fill this form to create an account.</p>
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm">
+                <label for="lst"><b>Last Name</b></label><br>
+                <input type="text" placeholder="Enter Your Last Name" name="lst" id="lst" autocomplete="off">
+                <div id="lst_error" class="error" style="color:red"></div>
+            </div>
+
+            <div class="col-sm">
+                <label for="usd"><b>User Name</b></label><br>
+                <input type="text" placeholder="Enter Your User Name" name="usd" id="usd" autocomplete="off">
+                <div id="usd_error" class="error" style="color:red"></div>
+            </div>
+
+            <div class="col-sm">
+                <label for="psw"><b>Password</b></label><br>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" autocomplete="off">
+                <div id="psw_error" class="error" style="color:red"></div>
+            </div>
+
+            <div class="col-sm">
+                <label for="psw-cnfrm"><b>Confirm Password</b></label><br>
+                <input type="password" placeholder="Confirm Password" name="psw-cnfrm" id="psw-cnfrm" autocomplete="off">
+                <div id="pswcnfrm_error" class="error" style="color:red"></div>
+            </div>
+
+            <div class="col-sm">
+                <label for="enrl"><b>Enrollment Date</b></label><br>
+                <input type="date" placeholder="Enrollment Date" name="enrl" id="enrl" autocomplete="off">
+                <div id="enrl_error" class="error" style="color:red"></div>
+            </div>
+            <div>
+
+            </div>
+            <div class="col-sm" style="margin:5px">
+                <label for="type"><b>Choose User Type</b></label><br>
+                <select name="type" id="type">
+                    <option value="Lecture">Lecture</option>
+                    <option value="Student">Student</option>
+                </select>
+                <div class="error" id="type_error" style="color:red"></div>
+            </div>
+            <div>
+
+            </div>
+            <div class="col-sm" style="margin:5px">
+                <label for="img"><b>Upload Image</b></label>
+                <input type="file" accept="image/*" name="FileName" id="imgUpload" class="form-control" />
+            </div>
+            <hr>
+            <div class="col-md-10">
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            </div>
+            <div class="form-group">
+                <div class="col-sm" style="margin:5px">
+                    @* <input type="submit" value="REGISTER" class="btn btn-success">*@
+                    <button ID="submit" onclick="ajaxPost()" class="btn btn-success">REGISTER</button>
+                    <button ID="reset" type="reset" class="btn btn-danger" onclick="window.location.reload()">RESET</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="signin" style="height:50%; width:70%; color:black; background-color:white">
+        Already have an account? @Html.ActionLink("Login here!", "Login")
+
+    </p>
+
+
+    @Scripts.Render("~/Content/Script/Script.js")
+    <link href="~/Content/Style/StyleSheet.css" rel="stylesheet" />
+</body>
+</html>
+
+
+
